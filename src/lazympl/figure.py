@@ -4,11 +4,11 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from typing import TYPE_CHECKING
 
+import matplotlib.figure as mplf
+
 if TYPE_CHECKING:
     from os import PathLike
     from typing import Any, Sequence, Union
-
-    import matplotlib.figure as mplf
 
     from .plot import Plot
 
