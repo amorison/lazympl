@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=61", "setuptools_scm>=7.0"]
+requires = ["setuptools>=64", "setuptools_scm>=8.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -36,7 +36,7 @@ dependencies = [
 lazympl = ["py.typed"]
 
 [tool.setuptools_scm]
-write_to = "src/lazympl/_version.py"
+version_file = "src/lazympl/_version.py"
 
 [tool.mypy]
 disallow_untyped_defs = true
