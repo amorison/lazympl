@@ -17,6 +17,19 @@ class Plot(ABC):
     def draw_on(self, ax: mpla.Axes) -> None:
         """Draw plot onto provided axes."""
 
+    def __add__(self, plot: Plot) -> Plot:
+        return AddPlot(left=self, right=plot)
+
+
+@dataclass(frozen=True)
+class AddPlot(Plot):
+    left: Plot
+    right: Plot
+
+    def draw_on(self, ax: mpla.Axes) -> None:
+        self.left.draw_on(ax)
+        self.right.draw_on(ax)
+
 
 @dataclass(frozen=True)
 class FigureTeePlot(Plot):
