@@ -116,9 +116,7 @@ class WithAxisLabels(Plot):
         )
 
     def draw_on(self, ax: mpla.Axes) -> None:
-        self.plot.draw_on(ax)
-        ax.set_xlabel(self.xlabel)
-        ax.set_ylabel(self.ylabel)
+        (self.plot + Decorations(xlabel=self.xlabel, ylabel=self.ylabel)).draw_on(ax)
 
 
 @dataclass(frozen=True, eq=False)
@@ -134,5 +132,4 @@ class WithPlotTitle(Plot):
         )
 
     def draw_on(self, ax: mpla.Axes) -> None:
-        self.plot.draw_on(ax)
-        ax.set_title(self.title)
+        (self.plot + Decorations(title=self.title)).draw_on(ax)
