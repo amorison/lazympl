@@ -32,6 +32,14 @@ class AddPlot(Plot):
 
 
 @dataclass(frozen=True)
+class NullPlot(Plot):
+    """A Plot that doesn't draw anything on the given Axes."""
+
+    def draw_on(self, ax: mpla.Axes) -> None:
+        pass
+
+
+@dataclass(frozen=True)
 class FigureTeePlot(Plot):
     plot: Plot
     make_figure: Callable[[Plot], Figure]
