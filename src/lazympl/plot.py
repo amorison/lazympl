@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import warnings
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from typing import TYPE_CHECKING
@@ -107,6 +108,13 @@ class WithAxisLabels(Plot):
     xlabel: str
     ylabel: str
 
+    def __post_init__(self) -> None:
+        warnings.warn(
+            "WithAxisLabels is deprecated, use Decorations instead",
+            FutureWarning,
+            stacklevel=2,
+        )
+
     def draw_on(self, ax: mpla.Axes) -> None:
         self.plot.draw_on(ax)
         ax.set_xlabel(self.xlabel)
@@ -117,6 +125,13 @@ class WithAxisLabels(Plot):
 class WithPlotTitle(Plot):
     plot: Plot
     title: str
+
+    def __post_init__(self) -> None:
+        warnings.warn(
+            "WithPlotTitle is deprecated, use Decorations instead",
+            FutureWarning,
+            stacklevel=2,
+        )
 
     def draw_on(self, ax: mpla.Axes) -> None:
         self.plot.draw_on(ax)
