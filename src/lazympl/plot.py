@@ -5,7 +5,7 @@ from dataclasses import dataclass
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from typing import Callable, Sequence
+    from typing import Callable, Optional, Sequence
 
     import matplotlib.axes as mpla
 
@@ -84,6 +84,21 @@ class PlotIfElse(Plot):
             self.plot_if.draw_on(ax)
         else:
             self.plot_else.draw_on(ax)
+
+
+@dataclass(frozen=True)
+class Decorations(Plot):
+    xlabel: Optional[str] = None
+    ylabel: Optional[str] = None
+    title: Optional[str] = None
+
+    def draw_on(self, ax: mpla.Axes) -> None:
+        if self.xlabel is not None:
+            ax.set_xlabel(self.xlabel)
+        if self.ylabel is not None:
+            ax.set_ylabel(self.ylabel)
+        if self.title is not None:
+            ax.set_title(self.title)
 
 
 @dataclass(frozen=True, eq=False)
