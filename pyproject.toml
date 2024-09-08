@@ -1,6 +1,6 @@
 [build-system]
-requires = ["setuptools>=64"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
 
 [project]
 name = "lazympl"
@@ -32,8 +32,8 @@ dependencies = [
     "matplotlib>=3.7",
 ]
 
-[tool.setuptools.package-data]
-lazympl = ["py.typed"]
+[tool.hatch.build.targets.sdist]
+include = ["lazympl"]
 
 [tool.mypy]
 disallow_untyped_defs = true
