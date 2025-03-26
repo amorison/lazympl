@@ -7,8 +7,9 @@ from typing import TYPE_CHECKING
 import matplotlib.figure as mplf
 
 if TYPE_CHECKING:
+    from collections.abc import Sequence
     from os import PathLike
-    from typing import Any, Sequence
+    from typing import Any
 
     from .plot import Plot
 

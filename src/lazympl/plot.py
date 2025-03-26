@@ -6,7 +6,8 @@ from dataclasses import dataclass
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from typing import Callable, Sequence
+    from collections.abc import Sequence
+    from typing import Callable
 
     import matplotlib.axes as mpla
 
