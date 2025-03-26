@@ -50,3 +50,7 @@ dev-dependencies = [
     "mypy>=1.11.2",
     "ruff>=0.11.2",
 ]
+
+[tool.basedpyright]
+venvPath = "."
+venv = ".venv"
