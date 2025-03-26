@@ -8,7 +8,7 @@ import matplotlib.figure as mplf
 
 if TYPE_CHECKING:
     from os import PathLike
-    from typing import Any, Sequence, Union
+    from typing import Any, Sequence
 
     from .plot import Plot
 
@@ -18,7 +18,7 @@ class Figure(ABC):
     def figure(self) -> mplf.Figure:
         """Build the matplotlib figure"""
 
-    def save_to(self, file_name: Union[str, PathLike]) -> None:
+    def save_to(self, file_name: str | PathLike) -> None:
         """Save the figure to provided image file name"""
         self.figure().savefig(file_name)
 
