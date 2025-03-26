@@ -19,7 +19,7 @@ class Figure(ABC):
     def figure(self) -> mplf.Figure:
         """Build the matplotlib figure"""
 
-    def save_to(self, file_name: str | PathLike) -> None:
+    def save_to(self, file_name: str | PathLike[str] | PathLike[bytes]) -> None:
         """Save the figure to provided image file name"""
         self.figure().savefig(file_name)
 
