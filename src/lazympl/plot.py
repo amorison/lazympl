@@ -46,14 +46,13 @@ class FigureTeePlot(Plot):
     plot: Plot
     make_figure: Callable[[Plot], Figure]
     file_name: str
-    dpi: int = 200
 
     def draw_on(self, ax: mpla.Axes) -> None:
         # Do our job and draw the child plot
         self.plot.draw_on(ax)
         # Also save a side copy of the plot
-        tee_fig = self.make_figure(self.plot).figure()
-        tee_fig.savefig(self.file_name, dpi=self.dpi)
+        tee_fig = self.make_figure(self.plot)
+        tee_fig.save_to(self.file_name)
 
 
 @dataclass(frozen=True, eq=False)
